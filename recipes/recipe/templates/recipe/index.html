@@ -1,0 +1,8 @@
+<h1>Add recipe!</h1>
+{% if recipe %}{{ recipe }}{% endif %}
+<br /><br />
+Naam: <input type="text" name="name" id="name" {% if first_name %}value="{{ name }}"{% endif %} /><br />
+Caloriën: <input type="text" name="name" id="name" {% if first_name %}value="{{ name }}"{% endif %} /><br />
+Ingrediënten: <input type="text" name="name" id="name" {% if first_name %}value="{{ name }}"{% endif %} /><br />
+Tijd: <input type="text" name="lastname" id="lastname" {% if last_name %}value="{{ last_name }}"{% endif %} /><br /><br />
+<input type="submit" value="Put a recipe!"  onclick="location.href = '/recipe/' + encodeURIComponent(document.getElementById('name').value)"/>
