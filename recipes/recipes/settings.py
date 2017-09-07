@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 import os
 import mongoengine
-mongoengine.connect('myDB')
+DBNAME = 'myDB'
+mongoengine.connect(DBNAME)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'recipes.recipe',
+	'recipes',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -52,7 +53,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'recipes.urls'
+ROOT_URLCONF = 'recipe.urls'
 
 TEMPLATES = [
     {
@@ -82,6 +83,8 @@ DATABASES = {
       'NAME' : 'myDB'
    }
 }
+
+SESSION_ENGINE = 'mongoengine.django.sessions'
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
